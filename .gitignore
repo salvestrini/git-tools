@@ -19,6 +19,8 @@ Makefile.in
 /stamp-h1
 /*.pc
 
+/.version
+
 /AUTHORS
 /ChangeLog
 

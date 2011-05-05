@@ -20,7 +20,7 @@ AUTHORS:
 	$(GIT) log --format="%aN <%aE>" | $(SORT) | $(UNIQ) > AUTHORS || { \
 		rm -f AUTHORS ;						   \
 		exit 1 ;						   \
-        }
+	}
 
 EXTRA_DIST     += AUTHORS
 DISTCLEANFILES += AUTHORS
@@ -34,7 +34,6 @@ dist-hook:
 
 .PHONY: ChangeLog
 ChangeLog:
-	rm -f ChangeLog &&						     \
 	$(GIT) log --decorate --format="%aN <%aE>:%d%n  %s%n" --date-order > \
 		ChangeLog || {						     \
 		rm -f ChangeLog ;					     \

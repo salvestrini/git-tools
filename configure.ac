@@ -18,7 +18,9 @@ AC_PROG_GREP
 AC_PROG_MKDIR_P
 AC_PROG_LN_S
 
-AC_PATH_PROG([GIT], [git], [/bin/false])
+AC_PATH_PROG([SORT], [sort], [/bin/false])
+AC_PATH_PROG([UNIQ], [uniq], [/bin/false])
+AC_PATH_PROG([GIT],  [git],  [/bin/false])
 AS_IF([test x"$GIT" = x""],[
     AC_MSG_ERROR([failed to find git executable])
 ])
