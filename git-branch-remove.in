@@ -1,5 +1,7 @@
 #@SHELL@
 
+. @GIT_EXEC_PATH@/git-sh-setup
+
 me="git-branch-remove"
 
 local=$1

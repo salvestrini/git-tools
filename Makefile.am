@@ -6,6 +6,8 @@
 
 ACLOCAL_AMFLAGS  = -I m4 --install
 
-bin_SCRIPTS =					\
+porcelaindir=$GIT_EXEC_PATH
+
+porcelain_SCRIPTS =				\
 	git-branch-create			\
 	git-branch-remove

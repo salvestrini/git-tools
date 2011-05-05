@@ -21,3 +21,6 @@ Makefile.in
 
 /AUTHORS
 /ChangeLog
+
+/git-branch-create
+/git-branch-remove
