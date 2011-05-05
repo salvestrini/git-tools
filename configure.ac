@@ -22,6 +22,7 @@ AC_PATH_PROG([GIT], [git], [/bin/false])
 AS_IF([test x"$GIT" = x""],[
     AC_MSG_ERROR([failed to find git executable])
 ])
+AC_ARG_VAR([GIT],[path to the git executable])
 
 GIT_EXEC_PATH=`$GIT --exec-path`
 AC_SUBST([GIT_EXEC_PATH], [$GIT_EXEC_PATH])
