@@ -1,0 +1,42 @@
+#@SHELL@
+
+me="git-branch-create"
+
+local=$1
+remote=$2
+
+if test x"$local" = x; then
+    echo "$me: missing local branch name"
+    exit 1
+fi
+if test x"$remote" = x; then
+    echo "$me: missing remote branch name"
+    exit 1
+fi
+
+@GIT@ checkout master || {
+    echo "$me: cannot checkout master"
+    exit 1
+}
+
+@GIT@ push origin master:refs/heads/$remote || {
+    echo "$me: cannot create remote branch"
+    exit 1
+}
+
+@GIT@ fetch origin || {
+    echo "$me: cannot fetch origin"
+    exit 1
+}
+
+@GIT@ branch --track $local origin/$remote || {
+    echo "$me: cannot create local branch"
+    exit 1
+}
+
+@GIT@ checkout $local || {
+    echo "$me: cannot checkout local branch"
+    exit 1
+}
+
+exit 0

@@ -1,0 +1,30 @@
+#@SHELL@
+
+me="git-branch-remove"
+
+local=$1
+remote=$2
+
+local=$1
+remote=$2
+
+if test x"$local" = x; then
+    echo "$me: missing local branch name"
+    exit 1
+fi
+if test x"$remote" = x; then
+    echo "$me: missing remote branch name"
+    exit 1
+fi
+
+@GIT@ push origin :$remote || {
+    echo "$me: cannot remove remote branch $remote"
+    exit 1
+}
+
+@GIT@ branch -d $local || {
+    echo "$me: cannot remove local branch"
+    exit 1
+}
+
+exit 0
